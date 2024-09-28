@@ -8,3 +8,6 @@ Click on Add, then select Add project from disk
 Navigate to forked repository folder in your file system
 Open folder, add the Project folder as a Unity project
 Open this project in Unity
+
+How to fork and clone:
+First you need to fork and then clone, first clone the reporitory and then fork it, as you already fork because of what we have to do as planning
