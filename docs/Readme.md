@@ -10,4 +10,4 @@ Open folder, add the Project folder as a Unity project
 Open this project in Unity
 
 How to fork and clone:
-First you need to fork and then clone, first clone the reporitory and then fork it, as you already fork because of what we have to do as planning
+First you need to fork and then clone the repository
