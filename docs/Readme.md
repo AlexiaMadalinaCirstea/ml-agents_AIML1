@@ -1,5 +1,5 @@
-Download Clone of the Fork:
-https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
+Clone of the Fork:
+git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
 
 Opening the Project:
 Open Unity Hub and navigate to Projects
