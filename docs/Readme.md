@@ -10,3 +10,4 @@ Open this project in Unity
 
 How to fork and clone:
 First you need to fork and then clone the repository
+  * clone the repository: https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
