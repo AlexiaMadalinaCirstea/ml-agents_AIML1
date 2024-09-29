@@ -43,12 +43,9 @@ During the installation and setup of Unity ML-Agents Toolkit, you might encounte
 ML-Agents requires specific versions of Python (3.10.x). If you have multiple Python versions installed, you might encounter conflicts during installation.
 
 # Solution (Anaconda):
-Create a new Anaconda environment with the correct Python version:
-conda create --name ml-agents python=3.10
-Activate the environment:
-conda activate ml-agents
-Install the required packages:
-pip install -r requirements.txt
+Create a new Anaconda environment with the correct Python version: conda create --name ml-agents python=3.10
+Activate the environment: conda activate ml-agents
+Install the required packages: pip install -r requirements.txt
 
 # Solution (Windows CMD):
 Use the following command to create a virtual environment: python -m venv ml-agents-env
