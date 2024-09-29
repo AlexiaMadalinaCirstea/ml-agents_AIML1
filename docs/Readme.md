@@ -1,3 +1,6 @@
+https://github.com/Unity-Technologies/ml-agents/tree/release_21_docs/docs/
+https://github.com/DennisSoemers/ml-agents/blob/fix-numpy-release-21-branch/LICENSE.md
+
 Clone of the Fork:
 git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
 
