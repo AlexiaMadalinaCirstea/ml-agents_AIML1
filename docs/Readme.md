@@ -63,9 +63,6 @@ source ml-agents-env/bin/activate
 <p>To clone the repository and use our custom version of ML-Agents:</p>
 <pre><code>git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
 </code></pre>
-<p>Navigate to the repository folder and install the required packages:</p>
-<pre><code>pip install -r requirements.txt
-</code></pre>
 
 <h2>4. Install the <code>com.unity.ml-agents</code> Unity Package</h2>
 <p>The ML-Agents C# SDK is a Unity Package. Install it through the Unity <strong>Package Manager</strong> by adding it from disk:</p>
