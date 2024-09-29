@@ -1,5 +1,14 @@
-https://github.com/Unity-Technologies/ml-agents/tree/release_21_docs/docs/
-https://github.com/DennisSoemers/ml-agents/blob/fix-numpy-release-21-branch/LICENSE.md
+# Unity ML-Agents Toolkit
+
+<p>
+  <a href="https://docs.unity3d.com/Packages/com.unity.ml-agents@latest/index.html" style="text-decoration:none;">
+    <img src="https://img.shields.io/badge/docs-reference-blue.svg" alt="docs"/>
+  </a>
+  <a href="https://github.com/Unity-Technologies/ml-agents/blob/main/LICENSE" style="text-decoration:none;">
+    <img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license"/>
+  </a>
+</p>
+
 
 Clone of the Fork:
 git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
