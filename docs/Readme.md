@@ -4,7 +4,8 @@
   <a href="https://docs.unity3d.com/Packages/com.unity.ml-agents@latest/index.html" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/docs-reference-blue.svg" alt="docs"/>
   </a>
-  <a href="https://github.com/Unity-Technologies/ml-agents/blob/main/LICENSE" style="text-decoration:none;">
+  <a href="https://github.com/Unity-Technologies/ml-agents/blob/main/LICENSE" style="text-decoration:none;"> 
+    <p></p>
     <img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license"/>
   </a>
 </p>
