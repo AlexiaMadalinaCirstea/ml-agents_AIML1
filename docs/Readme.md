@@ -51,20 +51,14 @@ Install the required packages:
 pip install -r requirements.txt
 
 # Solution (Windows CMD):
-Use the following command to create a virtual environment:
-python -m venv ml-agents-env
-Activate the environment:
-ml-agents-env\Scripts\activate
-Install the required dependencies:
-pip install -r requirements.txt
+Use the following command to create a virtual environment: python -m venv ml-agents-env
+Activate the environment: ml-agents-env\Scripts\activate
+Install the required dependencies: pip install -r requirements.txt
 
 # Solution (macOS/Linux):
-Create a virtual environment with Python:
-python3 -m venv ml-agents-env
-Activate the environment:
-source ml-agents-env/bin/activate
-Install the required dependencies:
-pip install -r requirements.txt
+Create a virtual environment with Python: python3 -m venv ml-agents-env
+Activate the environment: source ml-agents-env/bin/activate
+Install the required dependencies: pip install -r requirements.txt
 
 # 2. Unity Hub or Editor Version Mismatch
 You may face compatibility issues if the version of Unity Hub or the Unity Editor you’re using is incompatible with the ML-Agents Toolkit.
@@ -75,19 +69,14 @@ Solution: Ensure you’re using the correct Unity version (Unity 2022.3 LTS or n
 If the ML-Agents installation fails, you might be missing essential dependencies.
 
 # Solution (Anaconda):
-Clone the correct fork and branch of ML-Agents:
-git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
-Install the necessary dependencies in your Anaconda environment:
-pip install -r requirements.txt
-If you encounter issues with `numpy`, install the specific version:
-pip install numpy==1.21.0
+Clone the correct fork and branch of ML-Agents: git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
+Install the necessary dependencies in your Anaconda environment: pip install -r requirements.txt
+If you encounter issues with `numpy`, install the specific version: pip install numpy==1.21.0
 
 # Solution (Windows CMD, macOS, Linux):
-Clone the correct branch and install dependencies:
-git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
+Clone the correct branch and install dependencies: git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
 pip install -r requirements.txt    
-If the installation fails due to `numpy` errors:
-pip install numpy==1.21.0
+If the installation fails due to `numpy` errors: pip install numpy==1.21.0
 
 # 4. Unity Editor Crashes on Import
 Sometimes the Unity Editor crashes while importing assets or the ML-Agents Toolkit. This can be due to a lack of system resources or corrupted files.
@@ -98,20 +87,14 @@ Solution: Clear the Unity cache by deleting the Library folder in your project d
 You may encounter errors due to conflicting versions of Python libraries.
 
 # Solution (Anaconda):
-Always use a separate Anaconda environment for each project to avoid dependency conflicts:
-conda create --name ml-agents python=3.10
-Activate the environment:
-conda activate ml-agents
-Check installed packages with:
-conda list
+Always use a separate Anaconda environment for each project to avoid dependency conflicts: conda create --name ml-agents python=3.10
+Activate the environment: conda activate ml-agents
+Check installed packages with: conda list
 
 # Solution (Windows CMD, macOS, Linux):
-Create separate virtual environments for different projects:
-python3 -m venv ml-agents-env
-Activate the environment:
-source ml-agents-env/bin/activate
-Check installed packages with:
-pip freeze
+Create separate virtual environments for different projects: python3 -m venv ml-agents-env
+Activate the environment: source ml-agents-env/bin/activate
+Check installed packages with: pip freeze
 
 # 6. C# or Visual Studio Issues in Unity
 If you face errors related to C# scripts or Visual Studio integration in Unity, the problem may be related to the incorrect installation of Visual Studio components.
