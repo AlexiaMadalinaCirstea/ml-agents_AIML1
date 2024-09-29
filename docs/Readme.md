@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license"/>
   </a>
 </p>
-
+([latest release](https://github.com/Unity-Technologies/ml-agents/releases/tag/latest_release)) ([all releases](https://github.com/Unity-Technologies/ml-agents/releases))
 
 
 
