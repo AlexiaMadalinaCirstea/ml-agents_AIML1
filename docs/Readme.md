@@ -1,6 +1,3 @@
-![image](https://github.com/user-attachments/assets/c18c4ccd-fcaf-4972-9552-a4c92b9ae8aa)
-
-
 Clone of the Fork:
 git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
 
