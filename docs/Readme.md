@@ -1,14 +1,9 @@
 # Unity ML-Agents Toolkit
 
-<p>
-  <a href="https://github.com/Unity-Technologies/ml-agents/tree/release_21_docs/docs/" style="text-decoration:none;">
-    <img src="https://img.shields.io/badge/docs-reference-blue.svg" alt="docs"/>
-  </a>
-  <p></p>
-  <a href="https://github.com/Unity-Technologies/ml-agents/releases" style="text-decoration:none;">
-    <img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license"/>
-  </a>
-</p>
+[![docs badge](https://img.shields.io/badge/docs-reference-blue.svg)](https://github.com/Unity-Technologies/ml-agents/tree/release_21_docs/docs/)
+
+[![license badge](https://img.shields.io/badge/license-Apache--2.0-green.svg)](../LICENSE.md)
+
 ([latest release](https://github.com/Unity-Technologies/ml-agents/releases/tag/latest_release))  
 ([all releases](https://github.com/Unity-Technologies/ml-agents/releases))
 
