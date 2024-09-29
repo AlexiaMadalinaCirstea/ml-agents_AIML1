@@ -15,9 +15,6 @@ This project explores the implementation and analysis of state-of-the-art Deep R
 2. Develop new sensor inputs: Implement custom sensors for the agent to interact with their environments more realistically.
 3. Performance analysis: Profile and analyze the computational performance of these models across different scenarios.
 
-# Clone of the Fork:
-git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
-
 # Opening the Project:
 1. Open Unity Hub and go to Projects
 2. Click on Add, then select Add project from disk
