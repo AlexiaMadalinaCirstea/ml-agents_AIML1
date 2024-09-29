@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/docs-reference-blue.svg" alt="docs"/>
   </a>
   <p></p>
-  <a href="https://github.com/Unity-Technologies/ml-agents/releases" style="text-decoration:none;">
+  <a href="[https://github.com/Unity-Technologies/ml-agents/releases](https://github.com/DennisSoemers/ml-agents/blob/fix-numpy-release-21-branch/LICENSE.md)" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/releases-latest-blue.svg" alt="releases"/>
   </a>
 </p>
