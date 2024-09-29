@@ -51,14 +51,12 @@ conda activate ml-agents
 <h3>Pip Setup (Windows CMD)</h3>
 <pre><code>python -m venv ml-agents-env
 ml-agents-env\Scripts\activate
-python -m pip install -r requirements.txt
 </code></pre>
 
 <h3>Brew Setup (macOS/Linux)</h3>
 <pre><code>brew install python
 python3 -m venv ml-agents-env
 source ml-agents-env/bin/activate
-python -m pip install -r requirements.txt
 </code></pre>
 
 <h2>3. Clone the ML-Agents Toolkit Fork</h2>
@@ -100,19 +98,16 @@ python -m pip install ./ml-agents
 <h4>Solution (Anaconda)</h4>
 <pre><code>conda create --name ml-agents python=3.10
 conda activate ml-agents
-pip install -r requirements.txt
 </code></pre>
 
 <h4>Solution (Windows CMD)</h4>
 <pre><code>python -m venv ml-agents-env
 ml-agents-env\Scripts\activate
-pip install -r requirements.txt
 </code></pre>
 
 <h4>Solution (macOS/Linux)</h4>
 <pre><code>python3 -m venv ml-agents-env
 source ml-agents-env/bin/activate
-pip install -r requirements.txt
 </code></pre>
 
 <h3>2. Unity Hub or Editor Version Mismatch</h3>
@@ -121,7 +116,6 @@ pip install -r requirements.txt
 <h3>3. ML-Agents Installation Fails Due to Missing Dependencies</h3>
 <p>Clone the correct fork and install dependencies:</p>
 <pre><code>git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
-pip install -r requirements.txt
 </code></pre>
 <p>If there are issues with <code>numpy</code>, use this command:</p>
 <pre><code>pip install numpy==1.21.0
