@@ -11,6 +11,14 @@ public enum Team
 
 public class AgentSoccer : Agent
 {
+    // Note that that the detectable tags are different for the blue and purple teams. The order is
+    // * ball
+    // * own goal
+    // * opposing goal
+    // * wall
+    // * own teammate
+    // * opposing player
+
     public enum Position
     {
         Striker,
@@ -21,6 +29,7 @@ public class AgentSoccer : Agent
     [HideInInspector]
     public Team team;
     float m_KickPower;
+    // The coefficient for the reward for colliding with a ball. Set using curriculum.
     float m_BallTouch;
     public Position position;
 
@@ -28,6 +37,7 @@ public class AgentSoccer : Agent
     float m_Existential;
     float m_LateralSpeed;
     float m_ForwardSpeed;
+
 
     [HideInInspector]
     public Rigidbody agentRb;
@@ -37,7 +47,6 @@ public class AgentSoccer : Agent
     public float rotSign;
 
     EnvironmentParameters m_ResetParams;
-    private float gameScore; // Track the score
 
     public override void Initialize()
     {
@@ -64,32 +73,26 @@ public class AgentSoccer : Agent
             initialPos = new Vector3(transform.position.x + 5f, .5f, transform.position.z);
             rotSign = -1f;
         }
-
+        if (position == Position.Goalie)
+        {
+            m_LateralSpeed = 1.0f;
+            m_ForwardSpeed = 1.0f;
+        }
+        else if (position == Position.Striker)
+        {
+            m_LateralSpeed = 0.3f;
+            m_ForwardSpeed = 1.3f;
+        }
+        else
+        {
+            m_LateralSpeed = 0.3f;
+            m_ForwardSpeed = 1.0f;
+        }
         m_SoccerSettings = FindObjectOfType<SoccerSettings>();
         agentRb = GetComponent<Rigidbody>();
         agentRb.maxAngularVelocity = 500;
 
         m_ResetParams = Academy.Instance.EnvironmentParameters;
-        gameScore = 0; // Initialize score
-        UpdateAgentSpeed();
-    }
-
-    // New method to update agent speed dynamically
-    public void UpdateAgentSpeed()
-    {
-        // Example logic: Defensive position increases lateral speed, Aggressive increases forward speed
-        if (gameScore > 0)
-        {
-            // If leading, play defensively
-            m_LateralSpeed = 1.2f;
-            m_ForwardSpeed = 0.8f;
-        }
-        else
-        {
-            // If losing, play aggressively
-            m_LateralSpeed = 0.5f;
-            m_ForwardSpeed = 1.5f;
-        }
     }
 
     public void MoveAgent(ActionSegment<int> act)
@@ -135,29 +138,31 @@ public class AgentSoccer : Agent
         }
 
         transform.Rotate(rotateDir, Time.deltaTime * 100f);
-        agentRb.AddForce(dirToGo * m_SoccerSettings.agentRunSpeed, ForceMode.VelocityChange);
+        agentRb.AddForce(dirToGo * m_SoccerSettings.agentRunSpeed,
+            ForceMode.VelocityChange);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
+
     {
+
         if (position == Position.Goalie)
         {
-            AddReward(m_Existential); // Bonus for goalies
+            // Existential bonus for Goalies.
+            AddReward(m_Existential);
         }
         else if (position == Position.Striker)
         {
-            AddReward(-m_Existential); // Penalty for Strikers to keep game balance
+            // Existential penalty for Strikers
+            AddReward(-m_Existential);
         }
-
-        // Dynamic update based on game state (adaptive behavior)
-        UpdateAgentSpeed();
-
         MoveAgent(actionBuffers.DiscreteActions);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var discreteActionsOut = actionsOut.DiscreteActions;
+        //forward
         if (Input.GetKey(KeyCode.W))
         {
             discreteActionsOut[0] = 1;
@@ -166,6 +171,7 @@ public class AgentSoccer : Agent
         {
             discreteActionsOut[0] = 2;
         }
+        //rotate
         if (Input.GetKey(KeyCode.A))
         {
             discreteActionsOut[2] = 1;
@@ -174,6 +180,7 @@ public class AgentSoccer : Agent
         {
             discreteActionsOut[2] = 2;
         }
+        //right
         if (Input.GetKey(KeyCode.E))
         {
             discreteActionsOut[1] = 1;
@@ -183,7 +190,9 @@ public class AgentSoccer : Agent
             discreteActionsOut[1] = 2;
         }
     }
-
+    /// <summary>
+    /// Used to provide a "kick" to the ball.
+    /// </summary>
     void OnCollisionEnter(Collision c)
     {
         var force = k_Power * m_KickPower;
@@ -203,13 +212,6 @@ public class AgentSoccer : Agent
     public override void OnEpisodeBegin()
     {
         m_BallTouch = m_ResetParams.GetWithDefault("ball_touch", 0);
-        gameScore = 0; // Reset score on new episode
     }
 
-    // New method to update the score
-    public void UpdateGameScore(float score)
-    {
-        gameScore = score;
-        UpdateAgentSpeed(); // Adapt speed based on score
-    }
 }
