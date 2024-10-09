@@ -118,6 +118,7 @@ source ml-agents-env/bin/activate
 <h3>4. Unity Editor Crashes on Import</h3>
 <p>If Unity crashes, try clearing the Unity cache by deleting the <code>Library</code> folder in your project directory. Unity will regenerate it on the next launch.</p>
 
+
 <h3>5. Python Dependency Conflicts</h3>
 <p>Always use a separate virtual environment for each project to avoid conflicts.</p>
 
@@ -145,6 +146,21 @@ pip freeze
 <p>Always use the specific branch of ML-Agents mentioned in the setup guide. Clone the repository and switch to the correct branch:</p>
 <pre><code>git clone https://github.com/AlexiaMadalinaCirstea/ml-agents_AIML1
 </code></pre>
+
+
+<h3>9. Virtual Environment Activation Issues (Windows)</h3>
+<p>When activating a virtual environment on Windows, you may encounter an error due to script execution policies. This can prevent the virtual environment from being activated or Python scripts from running. To fix this, you need to set the execution policy to <code>RemoteSigned</code>.</p>
+
+<p>Run the following PowerShell command as an administrator:</p>
+
+<pre><code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
+
+<p>After running this command, check the execution policy using:</p>
+
+<pre><code>Get-ExecutionPolicy -List
+</code></pre>
+
 
 <h2>References</h2>
 <p>Original fork from Dennis Soemers: <a href="https://github.com/DennisSoemers/ml-agents/tree/fix-numpy-release-21-branch" target="_blank">https://github.com/DennisSoemers/ml-agents/tree/fix-numpy-release-21-branch</a></p>
