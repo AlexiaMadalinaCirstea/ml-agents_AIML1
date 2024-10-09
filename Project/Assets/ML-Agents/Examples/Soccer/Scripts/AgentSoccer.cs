@@ -1,7 +1,12 @@
+
+
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
+using Unity.MLAgents.Sensors;  // <-- Add this line for RayPerceptionSensorComponent3D
+using System.Collections.Generic;
+
 
 public enum Team
 {
@@ -47,6 +52,8 @@ public class AgentSoccer : Agent
     public float rotSign;
 
     EnvironmentParameters m_ResetParams;
+    RayPerceptionSensorComponent3D raySensor;
+
 
     public override void Initialize()
     {
@@ -93,6 +100,14 @@ public class AgentSoccer : Agent
         agentRb.maxAngularVelocity = 500;
 
         m_ResetParams = Academy.Instance.EnvironmentParameters;
+
+        raySensor = gameObject.AddComponent<RayPerceptionSensorComponent3D>();
+        raySensor.SensorName = "RayPerceptionSensor";
+        raySensor.DetectableTags = new List<string>() { "ball", "own goal", "opposing goal", "wall","own teammate", "opposing player" };
+        raySensor.RayLength = 20f;
+        raySensor.RaysPerDirection = 3;
+        raySensor.MaxRayDegrees = 60;
+        raySensor.SphereCastRadius = 0.5f;
     }
 
     public void MoveAgent(ActionSegment<int> act)
