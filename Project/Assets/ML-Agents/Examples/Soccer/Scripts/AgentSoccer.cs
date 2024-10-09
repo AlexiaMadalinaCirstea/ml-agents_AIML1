@@ -38,7 +38,6 @@ public class AgentSoccer : Agent
     float m_LateralSpeed;
     float m_ForwardSpeed;
 
-
     [HideInInspector]
     public Rigidbody agentRb;
     SoccerSettings m_SoccerSettings;
@@ -49,6 +48,15 @@ public class AgentSoccer : Agent
     EnvironmentParameters m_ResetParams;
 
     public override void Initialize()
+    {
+        // Initialization logic for the agent settings, speeds, and team
+        InitializeAgentSettings();
+        InitializeTeamSettings();
+        InitializeSpeed();
+    }
+
+    // Initializes agent-specific settings such as the behavior parameters and Rigidbody component
+    private void InitializeAgentSettings()
     {
         SoccerEnvController envController = GetComponentInParent<SoccerEnvController>();
         if (envController != null)
@@ -61,6 +69,17 @@ public class AgentSoccer : Agent
         }
 
         m_BehaviorParameters = gameObject.GetComponent<BehaviorParameters>();
+
+        agentRb = GetComponent<Rigidbody>();
+        agentRb.maxAngularVelocity = 500;
+
+        m_SoccerSettings = FindObjectOfType<SoccerSettings>();
+        m_ResetParams = Academy.Instance.EnvironmentParameters;
+    }
+
+    // Sets the initial position and rotation sign based on the agent's team
+    private void InitializeTeamSettings()
+    {
         if (m_BehaviorParameters.TeamId == (int)Team.Blue)
         {
             team = Team.Blue;
@@ -73,6 +92,11 @@ public class AgentSoccer : Agent
             initialPos = new Vector3(transform.position.x + 5f, .5f, transform.position.z);
             rotSign = -1f;
         }
+    }
+
+    // Initializes the speed based on the agent's position (Striker, Goalie, Generic)
+    private void InitializeSpeed()
+    {
         if (position == Position.Goalie)
         {
             m_LateralSpeed = 1.0f;
@@ -88,24 +112,28 @@ public class AgentSoccer : Agent
             m_LateralSpeed = 0.3f;
             m_ForwardSpeed = 1.0f;
         }
-        m_SoccerSettings = FindObjectOfType<SoccerSettings>();
-        agentRb = GetComponent<Rigidbody>();
-        agentRb.maxAngularVelocity = 500;
-
-        m_ResetParams = Academy.Instance.EnvironmentParameters;
     }
 
+    // Handles the agent's movement based on received actions
     public void MoveAgent(ActionSegment<int> act)
     {
-        var dirToGo = Vector3.zero;
-        var rotateDir = Vector3.zero;
+        var dirToGo = GetMoveDirection(act);
+        var rotateDir = GetRotationDirection(act[2]);
 
+        ApplyRotation(rotateDir);
+        ApplyMovement(dirToGo);
+    }
+
+    // Translates the actions into movement directions
+    private Vector3 GetMoveDirection(ActionSegment<int> act)
+    {
+        var dirToGo = Vector3.zero;
         m_KickPower = 0f;
 
         var forwardAxis = act[0];
         var rightAxis = act[1];
-        var rotateAxis = act[2];
 
+        // Forward/backward movement
         switch (forwardAxis)
         {
             case 1:
@@ -117,35 +145,48 @@ public class AgentSoccer : Agent
                 break;
         }
 
+        // Lateral movement
         switch (rightAxis)
         {
             case 1:
-                dirToGo = transform.right * m_LateralSpeed;
+                dirToGo += transform.right * m_LateralSpeed;
                 break;
             case 2:
-                dirToGo = transform.right * -m_LateralSpeed;
+                dirToGo += -transform.right * m_LateralSpeed;
                 break;
         }
 
+        return dirToGo;
+    }
+
+    // Determines the direction for rotation
+    private Vector3 GetRotationDirection(int rotateAxis)
+    {
         switch (rotateAxis)
         {
             case 1:
-                rotateDir = transform.up * -1f;
-                break;
+                return transform.up * -1f;
             case 2:
-                rotateDir = transform.up * 1f;
-                break;
+                return transform.up * 1f;
+            default:
+                return Vector3.zero;
         }
+    }
 
+    // Applies rotation to the agent
+    private void ApplyRotation(Vector3 rotateDir)
+    {
         transform.Rotate(rotateDir, Time.deltaTime * 100f);
-        agentRb.AddForce(dirToGo * m_SoccerSettings.agentRunSpeed,
-            ForceMode.VelocityChange);
+    }
+
+    // Applies movement forces to the agent's Rigidbody
+    private void ApplyMovement(Vector3 dirToGo)
+    {
+        agentRb.AddForce(dirToGo * m_SoccerSettings.agentRunSpeed, ForceMode.VelocityChange);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
-
     {
-
         if (position == Position.Goalie)
         {
             // Existential bonus for Goalies.
@@ -190,6 +231,7 @@ public class AgentSoccer : Agent
             discreteActionsOut[1] = 2;
         }
     }
+
     /// <summary>
     /// Used to provide a "kick" to the ball.
     /// </summary>
@@ -203,15 +245,20 @@ public class AgentSoccer : Agent
         if (c.gameObject.CompareTag("ball"))
         {
             AddReward(.2f * m_BallTouch);
-            var dir = c.contacts[0].point - transform.position;
-            dir = dir.normalized;
-            c.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+            ApplyKickForce(c, force);
         }
+    }
+
+    // Applies the force to the ball on collision
+    private void ApplyKickForce(Collision c, float force)
+    {
+        var dir = c.contacts[0].point - transform.position;
+        dir = dir.normalized;
+        c.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
     }
 
     public override void OnEpisodeBegin()
     {
         m_BallTouch = m_ResetParams.GetWithDefault("ball_touch", 0);
     }
-
 }
