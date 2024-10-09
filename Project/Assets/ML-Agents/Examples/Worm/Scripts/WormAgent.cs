@@ -7,7 +7,7 @@ using Unity.MLAgents.Sensors;
 [RequireComponent(typeof(JointDriveController))] // Required to set joint forces
 public class WormAgent : Agent
 {
-    const float m_MaxWalkingSpeed = 10; //The max walking speed
+    const float m_MaxWalkingSpeed = 50; //The max walking speed
 
     [Header("Target Prefabs")] public Transform TargetPrefab; //Target prefab to use in Dynamic envs
     private Transform m_Target; //Target the agent will walk towards during training.
@@ -40,9 +40,17 @@ public class WormAgent : Agent
 
         //Setup each body part
         m_JdController.SetupBodyPart(bodySegment0);
+        m_JdController.bodyPartsDict[bodySegment0].rb.drag = 0.5f;
+        m_JdController.bodyPartsDict[bodySegment0].rb.angularDrag = 0.5f;
         m_JdController.SetupBodyPart(bodySegment1);
+        m_JdController.bodyPartsDict[bodySegment1].rb.drag = 0.5f;
+        m_JdController.bodyPartsDict[bodySegment1].rb.angularDrag = 0.5f;
         m_JdController.SetupBodyPart(bodySegment2);
+        m_JdController.bodyPartsDict[bodySegment2].rb.drag = 0.5f;
+        m_JdController.bodyPartsDict[bodySegment2].rb.angularDrag = 0.5f;
         m_JdController.SetupBodyPart(bodySegment3);
+        m_JdController.bodyPartsDict[bodySegment3].rb.drag = 0.5f;
+        m_JdController.bodyPartsDict[bodySegment3].rb.angularDrag = 0.5f;
     }
 
 
@@ -173,11 +181,11 @@ public class WormAgent : Agent
         //The reward for facing the target
         var facingRew = 0f;
         //If we are within 30 degrees of facing the target
-        if (rotAngle < 30)
+        if (rotAngle < 15)
         {
             //Set normalized facingReward
             //Facing the target perfectly yields a reward of 1
-            facingRew = 1 - (rotAngle / 180);
+            facingRew = 1 - (rotAngle / 90);
         }
 
         //Add the product of these two rewards
@@ -194,7 +202,7 @@ public class WormAgent : Agent
 
         //return the value on a declining sigmoid shaped curve that decays from 1 to 0
         //This reward will approach 1 if it matches perfectly and approach zero as it deviates
-        return Mathf.Pow(1 - Mathf.Pow(velDeltaMagnitude / m_MaxWalkingSpeed, 2), 2);
+        return Mathf.Pow(1 - Mathf.Pow(velDeltaMagnitude / m_MaxWalkingSpeed, 4), 2);
     }
 
     /// <summary>
