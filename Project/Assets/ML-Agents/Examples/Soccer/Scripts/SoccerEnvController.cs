@@ -19,6 +19,7 @@ public class SoccerEnvController : MonoBehaviour
     [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 25000;
     public GameObject ball;
     [HideInInspector] public Rigidbody ballRb;
+    public static Vector3 ballPosition; // Store global ball position
     Vector3 m_BallStartingPos;
 
     public List<PlayerInfo> AgentsList = new List<PlayerInfo>();
@@ -56,6 +57,7 @@ public class SoccerEnvController : MonoBehaviour
 
     void FixedUpdate()
     {
+        ballPosition = ball.transform.position; // Update global ball position
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {

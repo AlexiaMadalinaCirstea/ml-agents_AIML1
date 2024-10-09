@@ -15,7 +15,7 @@ public class AgentSoccer : Agent
     {
         Striker,
         Goalie,
-        Generic
+        Defender
     }
 
     [HideInInspector]
@@ -38,6 +38,7 @@ public class AgentSoccer : Agent
 
     EnvironmentParameters m_ResetParams;
     private float gameScore; // Track the score
+    private bool isAttacker = false; // Is the agent currently attacking?
 
     public override void Initialize()
     {
@@ -77,10 +78,9 @@ public class AgentSoccer : Agent
     // New method to update agent speed dynamically
     public void UpdateAgentSpeed()
     {
-        // Example logic: Defensive position increases lateral speed, Aggressive increases forward speed
         if (gameScore > 0)
         {
-            // If leading, play defensively
+            // If leading, defensive mode
             m_LateralSpeed = 1.2f;
             m_ForwardSpeed = 0.8f;
         }
@@ -89,6 +89,32 @@ public class AgentSoccer : Agent
             // If losing, play aggressively
             m_LateralSpeed = 0.5f;
             m_ForwardSpeed = 1.5f;
+        }
+    }
+
+    // New method to dynamically switch roles
+    public void SwitchRole()
+    {
+        if (team == Team.Blue && SoccerEnvController.ballPosition.z > 0 || team == Team.Purple && SoccerEnvController.ballPosition.z < 0)
+        {
+            isAttacker = true; // Only attack when the ball is on the offensive side
+        }
+        else
+        {
+            isAttacker = false;
+        }
+
+        if (isAttacker)
+        {
+            position = Position.Striker;
+            m_LateralSpeed = 0.3f;
+            m_ForwardSpeed = 1.5f;
+        }
+        else
+        {
+            position = Position.Defender; // Play defense
+            m_LateralSpeed = 1.2f;
+            m_ForwardSpeed = 0.8f;
         }
     }
 
@@ -140,6 +166,8 @@ public class AgentSoccer : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
+        SwitchRole(); // Switch between attack and defense dynamically
+
         if (position == Position.Goalie)
         {
             AddReward(m_Existential); // Bonus for goalies
@@ -151,7 +179,6 @@ public class AgentSoccer : Agent
 
         // Dynamic update based on game state (adaptive behavior)
         UpdateAgentSpeed();
-
         MoveAgent(actionBuffers.DiscreteActions);
     }
 
