@@ -152,21 +152,32 @@ public class AgentSoccer : Agent
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
-
     {
+        MoveAgent(actionBuffers.DiscreteActions);
 
+        // Reward the agent for getting closer to the ball
+        GameObject ball = GameObject.FindGameObjectWithTag("ball");
+        if (ball != null)
+        {
+            float distanceToBall = Vector3.Distance(transform.position, ball.transform.position);
+            AddReward(1.0f / distanceToBall * 0.01f); // Reward for getting closer to the ball
+        }
+
+        // Add penalty if the agent moves away from the ball
+        float penalty = Vector3.Distance(transform.position, ball.transform.position);
+        AddReward(-1.0f / penalty * 0.005f);
+
+        // Goalies get a survival bonus for staying active
         if (position == Position.Goalie)
         {
-            // Existential bonus for Goalies.
             AddReward(m_Existential);
         }
         else if (position == Position.Striker)
         {
-            // Existential penalty for Strikers
             AddReward(-m_Existential);
         }
-        MoveAgent(actionBuffers.DiscreteActions);
     }
+
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
