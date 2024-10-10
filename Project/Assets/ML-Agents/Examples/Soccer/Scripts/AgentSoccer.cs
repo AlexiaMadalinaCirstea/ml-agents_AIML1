@@ -102,6 +102,15 @@ public class AgentSoccer : Agent
 
         m_KickPower = 0f;
 
+        // Get the distance to the ball to adjust speed
+        GameObject ball = GameObject.FindGameObjectWithTag("ball");
+        float distanceToBall = Vector3.Distance(transform.position, ball.transform.position);
+        
+        // Adjust speeds based on distance to ball
+        float dynamicSpeedFactor = Mathf.Clamp(1 / (distanceToBall + 1), 0.5f, 1.5f);
+        float adjustedForwardSpeed = m_ForwardSpeed * dynamicSpeedFactor;
+        float adjustedLateralSpeed = m_LateralSpeed * dynamicSpeedFactor;
+
         var forwardAxis = act[0];
         var rightAxis = act[1];
         var rotateAxis = act[2];
@@ -109,21 +118,21 @@ public class AgentSoccer : Agent
         switch (forwardAxis)
         {
             case 1:
-                dirToGo = transform.forward * m_ForwardSpeed;
+                dirToGo = transform.forward * adjustedForwardSpeed;
                 m_KickPower = 1f;
                 break;
             case 2:
-                dirToGo = transform.forward * -m_ForwardSpeed;
+                dirToGo = transform.forward * -adjustedForwardSpeed;
                 break;
         }
 
         switch (rightAxis)
         {
             case 1:
-                dirToGo = transform.right * m_LateralSpeed;
+                dirToGo = transform.right * adjustedLateralSpeed;
                 break;
             case 2:
-                dirToGo = transform.right * -m_LateralSpeed;
+                dirToGo = transform.right * -adjustedLateralSpeed;
                 break;
         }
 
@@ -137,7 +146,7 @@ public class AgentSoccer : Agent
                 break;
         }
 
-        transform.Rotate(rotateDir, Time.deltaTime * 100f);
+        transform.Rotate(rotateDir, Time.deltaTime * 80f);
         agentRb.AddForce(dirToGo * m_SoccerSettings.agentRunSpeed,
             ForceMode.VelocityChange);
     }
