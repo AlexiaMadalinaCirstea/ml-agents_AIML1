@@ -10,7 +10,7 @@ from mlagents_envs.side_channel.environment_parameters_channel import (
     EnvironmentParametersChannel,
 )
 from mlagents_envs.side_channel.stats_side_channel import StatsSideChannel
-from mlagents_envs.envs.unity_aec_env import UnityAECEnv
+from mlagents_envs.envs.unity_aec_env import UnityAECEnv 
 
 logger = logging_util.get_logger(__name__)
 
@@ -37,7 +37,7 @@ class PettingZooEnvFactory:
         _env = None
         # If no base port argument is provided, try ports starting at 6000 until one is free
         if "base_port" not in kwargs:
-            port = 6000
+            port = 6006
             while _env is None:
                 try:
                     kwargs["base_port"] = port

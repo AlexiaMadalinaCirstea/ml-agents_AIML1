@@ -2188,6 +2188,9 @@ GameObject:
   - component: {fileID: 114320493772006642}
   - component: {fileID: 9152743230243588598}
   - component: {fileID: 798330825103180240}
+  - component: {fileID: 4746704457678523710}
+  - component: {fileID: 3532000697287575568}
+  - component: {fileID: 4568979035103607035}
   m_Layer: 0
   m_Name: PurpleStriker
   m_TagString: purpleAgent
@@ -2307,9 +2310,9 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  customRaySensor: {fileID: 0}
-  memoryComponent: {fileID: 0}
-  soundDetection: {fileID: 0}
+  customRaySensor: {fileID: 4746704457678523710}
+  memoryComponent: {fileID: 3532000697287575568}
+  soundDetection: {fileID: 4568979035103607035}
   team: 0
   position: 2
   agentRb: {fileID: 0}
@@ -2377,6 +2380,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugCommandLineOverride: 
+--- !u!114 &4746704457678523710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095606497496374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f8fb8c48208c499ca5ebd2abb14ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raySensor: {fileID: 0}
+--- !u!114 &3532000697287575568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095606497496374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e53b12998a64e4d86d8e36883b244e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryCapacity: 5
+--- !u!114 &4568979035103607035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095606497496374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8471a693be85a141a2bb7e77f85d175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 5
 --- !u!1 &1101518129530804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,6 +2518,9 @@ GameObject:
   - component: {fileID: 114516244030127556}
   - component: {fileID: 404683423509059512}
   - component: {fileID: 8557426429796011212}
+  - component: {fileID: 6379123693672191489}
+  - component: {fileID: 3000520659847915225}
+  - component: {fileID: 3642638276972064370}
   m_Layer: 0
   m_Name: BlueStriker
   m_TagString: blueAgent
@@ -2595,9 +2640,9 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  customRaySensor: {fileID: 0}
-  memoryComponent: {fileID: 0}
-  soundDetection: {fileID: 0}
+  customRaySensor: {fileID: 6379123693672191489}
+  memoryComponent: {fileID: 3000520659847915225}
+  soundDetection: {fileID: 3642638276972064370}
   team: 1
   position: 2
   agentRb: {fileID: 0}
@@ -2665,6 +2710,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugCommandLineOverride: 
+--- !u!114 &6379123693672191489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131626411948014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f8fb8c48208c499ca5ebd2abb14ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raySensor: {fileID: 0}
+--- !u!114 &3000520659847915225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131626411948014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e53b12998a64e4d86d8e36883b244e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryCapacity: 5
+--- !u!114 &3642638276972064370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131626411948014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8471a693be85a141a2bb7e77f85d175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 5
 --- !u!1 &1141134673700168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,6 +4498,9 @@ GameObject:
   - component: {fileID: 1023485123796557062}
   - component: {fileID: 8734522883866558980}
   - component: {fileID: 6283479335904612434}
+  - component: {fileID: 6887261477958293845}
+  - component: {fileID: 6361157444519978575}
+  - component: {fileID: 2528858521533178503}
   m_Layer: 0
   m_Name: PurpleStriker (1)
   m_TagString: purpleAgent
@@ -4533,9 +4620,9 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  customRaySensor: {fileID: 0}
-  memoryComponent: {fileID: 0}
-  soundDetection: {fileID: 0}
+  customRaySensor: {fileID: 6887261477958293845}
+  memoryComponent: {fileID: 6361157444519978575}
+  soundDetection: {fileID: 2528858521533178503}
   team: 0
   position: 2
   agentRb: {fileID: 0}
@@ -4603,6 +4690,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugCommandLineOverride: 
+--- !u!114 &6887261477958293845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257467487437560250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f8fb8c48208c499ca5ebd2abb14ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raySensor: {fileID: 0}
+--- !u!114 &6361157444519978575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257467487437560250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e53b12998a64e4d86d8e36883b244e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryCapacity: 5
+--- !u!114 &2528858521533178503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257467487437560250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8471a693be85a141a2bb7e77f85d175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 5
 --- !u!1 &6442519122303792292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4964,6 +5090,9 @@ GameObject:
   - component: {fileID: 2562571719799803906}
   - component: {fileID: 1018414316889932458}
   - component: {fileID: 6939753220642424022}
+  - component: {fileID: 7713393497345610957}
+  - component: {fileID: 2577191845136643864}
+  - component: {fileID: 7426566686024445622}
   m_Layer: 0
   m_Name: BlueStriker (1)
   m_TagString: blueAgent
@@ -5083,9 +5212,9 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  customRaySensor: {fileID: 0}
-  memoryComponent: {fileID: 0}
-  soundDetection: {fileID: 0}
+  customRaySensor: {fileID: 7713393497345610957}
+  memoryComponent: {fileID: 2577191845136643864}
+  soundDetection: {fileID: 7426566686024445622}
   team: 1
   position: 2
   agentRb: {fileID: 0}
@@ -5153,6 +5282,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugCommandLineOverride: 
+--- !u!114 &7713393497345610957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360301818957399454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f8fb8c48208c499ca5ebd2abb14ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raySensor: {fileID: 0}
+--- !u!114 &2577191845136643864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360301818957399454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e53b12998a64e4d86d8e36883b244e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryCapacity: 5
+--- !u!114 &7426566686024445622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360301818957399454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8471a693be85a141a2bb7e77f85d175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 5
 --- !u!1 &8673569163220857793
 GameObject:
   m_ObjectHideFlags: 0

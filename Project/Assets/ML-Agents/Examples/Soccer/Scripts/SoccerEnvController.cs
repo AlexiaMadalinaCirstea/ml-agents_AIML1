@@ -43,7 +43,7 @@ public class SoccerEnvController : MonoBehaviour
             item.StartingPos = item.Agent.transform.position;
             item.StartingRot = item.Agent.transform.rotation;
             item.Rb = item.Agent.GetComponent<Rigidbody>();
-            if (item.Agent.team == AgentSoccer.Team.Blue)  // Use AgentSoccer.Team here
+            if (item.Agent.team == AgentSoccer.Team.Blue)  
             {
                 m_BlueAgentGroup.RegisterAgent(item.Agent);
             }
@@ -76,9 +76,9 @@ public class SoccerEnvController : MonoBehaviour
         ballRb.angularVelocity = Vector3.zero;
     }
 
-    public void GoalTouched(AgentSoccer.Team scoredTeam) // Reference the team enum here from AgentSoccer
+    public void GoalTouched(AgentSoccer.Team scoredTeam) 
     {
-        if (scoredTeam == AgentSoccer.Team.Blue) // Reference the team enum
+        if (scoredTeam == AgentSoccer.Team.Blue) 
         {
             blueScore++;
             m_BlueAgentGroup.AddGroupReward(1 - (float)m_ResetTimer / MaxEnvironmentSteps);

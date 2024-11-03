@@ -38,23 +38,19 @@ public class AgentSoccer : Agent
     public override void Initialize()
     {
         customRaySensor = GetComponent<CustomRayPerceptionSensor>();
-        if (customRaySensor == null)
-        {
-            Debug.LogError("CustomRayPerceptionSensor not found!");
-        }
+        m_SoccerSettings = FindObjectOfType<SoccerSettings>();
+        agentRb = GetComponent<Rigidbody>();
 
         SoccerEnvController envController = GetComponentInParent<SoccerEnvController>();
         m_Existential = envController != null ? 1f / envController.MaxEnvironmentSteps : 1f / MaxStep;
 
         m_BehaviorParameters = GetComponent<BehaviorParameters>();
         team = (m_BehaviorParameters.TeamId == (int)Team.Blue) ? Team.Blue : Team.Purple;
-        initialPos = team == Team.Blue ? 
-            new Vector3(transform.position.x - 5f, .5f, transform.position.z) : 
-            new Vector3(transform.position.x + 5f, .5f, transform.position.z);
+        initialPos = team == Team.Blue
+            ? new Vector3(transform.position.x - 5f, .5f, transform.position.z)
+            : new Vector3(transform.position.x + 5f, .5f, transform.position.z);
         rotSign = team == Team.Blue ? 1f : -1f;
 
-        m_SoccerSettings = FindObjectOfType<SoccerSettings>();
-        agentRb = GetComponent<Rigidbody>();
         agentRb.maxAngularVelocity = 500;
 
         m_ResetParams = Academy.Instance.EnvironmentParameters;
@@ -110,10 +106,14 @@ public class AgentSoccer : Agent
         agentRb.AddForce(dirToGo * m_SoccerSettings.agentRunSpeed, ForceMode.VelocityChange);
     }
 
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        ProcessCustomSensors();
+    }
+
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         SwitchRole();
-        ProcessCustomSensors();
         AddReward(m_Existential * (position == Position.Goalie ? 1 : (position == Position.Striker ? -1 : 0)));
         UpdateAgentSpeed();
         MoveAgent(actionBuffers.DiscreteActions);
@@ -121,15 +121,12 @@ public class AgentSoccer : Agent
 
     private void ProcessCustomSensors()
     {
-        if (customRaySensor != null)
+        var perceptionResults = customRaySensor.GetRayPerceptionResults();
+        foreach (var hitInfo in perceptionResults.RayOutputs)
         {
-            var perceptionResults = customRaySensor.GetRayPerceptionResults();
-            foreach (var hitInfo in perceptionResults.RayOutputs)
+            if (hitInfo.HasHit)
             {
-                if (hitInfo.HasHit)
-                {
-                    Debug.Log($"Ray hit: {hitInfo.HitGameObject.name}");
-                }
+                Debug.Log($"Ray hit: {hitInfo.HitGameObject.name}");
             }
         }
 
