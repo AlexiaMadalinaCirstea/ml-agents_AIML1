@@ -13,18 +13,18 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # Step 1: Log in to DockerHub
+    # Step 1: Log in to DockerHub using GitHub secrets
     - name: Log in to DockerHub
-      run: Login to DockerHub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     # Step 2: Build the Docker image
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag aiml1_docker/my-image-name:$(date +%s)
 
-    # Step 3: Tag the image with a version or latest tag (e.g., :latest or :v1.0.0)
+    # Step 3: Tag the image with 'latest' or any other custom version tag
     - name: Tag the Docker image
-      run: docker tag my-image-name:$(date +%s) my-dockerhub-username/my-image-name:latest
+      run: docker tag aiml1_docker/my-image-name:$(date +%s) aiml1_docker/my-image-name:latest
 
     # Step 4: Push the Docker image to DockerHub
     - name: Push Docker image to DockerHub
-      run: docker push my-dockerhub-username/my-image-name:latest
+      run: docker push aiml1_docker/my-image-name:latest
