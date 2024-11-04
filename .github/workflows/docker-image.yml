@@ -14,19 +14,19 @@ jobs:
     # Step 1: Checkout the code
     - uses: actions/checkout@v4
 
-    # Step 2: Log in to DockerHub using GitHub secrets
+    # Step 2: Log in to Docker Hub
     - name: Log in to Docker Hub
       run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-    # Step 3: Build the Docker image
+    # Step 3: Build the Docker image without cache
     - name: Build the Docker image
       id: build_image
       run: |
         IMAGE_TAG=$(date +%s)
-        docker build . --file Dockerfile --tag aiml1_docker/my-image-name:$IMAGE_TAG
+        docker build --no-cache . --file Dockerfile --tag aiml1_docker/my-image-name:$IMAGE_TAG
         echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
-    # Step 4: Tag the image with 'latest' or any other custom version tag
+    # Step 4: Tag the image with 'latest'
     - name: Tag the Docker image
       run: docker tag aiml1_docker/my-image-name:${{ env.IMAGE_TAG }} aiml1_docker/my-image-name:latest
 
