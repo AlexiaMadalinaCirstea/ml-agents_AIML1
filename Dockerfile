@@ -4,8 +4,12 @@ FROM nvidia/cuda:12.6.2-cudnn-devel-ubuntu22.04
 # Unminimize the system (optional)
 RUN yes | unminimize
 
+# Set the frontend to non-interactive to avoid prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends wget software-properties-common curl gnupg libcurl4-openssl-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget software-properties-common curl gnupg libcurl4-openssl-dev
 
 # Add deadsnakes PPA to install Python 3.7
 RUN add-apt-repository ppa:deadsnakes/ppa
