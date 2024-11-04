@@ -2,9 +2,9 @@ name: AIML1_Docker
 
 on:
   push:
-    branches: [ "Madalina" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "Madalina" ]
+    branches: [ "develop" ]
 
 jobs:
   build:
