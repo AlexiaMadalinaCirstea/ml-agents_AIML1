@@ -7,9 +7,14 @@ RUN yes | unminimize
 # Set the frontend to non-interactive to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Pre-seed the keyboard configuration to avoid interactive prompts
+RUN echo "keyboard-configuration keyboard/variant select us" | debconf-set-selections \
+    && echo "keyboard-configuration keyboard/layout select USA" | debconf-set-selections
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    wget software-properties-common curl gnupg libcurl4-openssl-dev
+    wget software-properties-common curl gnupg libcurl4-openssl-dev \
+    && apt-get install -y --no-install-recommends keyboard-configuration
 
 # Add deadsnakes PPA to install Python 3.7
 RUN add-apt-repository ppa:deadsnakes/ppa
