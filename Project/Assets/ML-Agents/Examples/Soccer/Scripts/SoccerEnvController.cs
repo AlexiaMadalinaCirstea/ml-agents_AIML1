@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Unity.MLAgents;
 using UnityEngine;
+using Unity.MLAgents;
 
 public class SoccerEnvController : MonoBehaviour
 {
@@ -8,57 +8,53 @@ public class SoccerEnvController : MonoBehaviour
     public class PlayerInfo
     {
         public AgentSoccer Agent;
-        [HideInInspector]
-        public Vector3 StartingPos;
-        [HideInInspector]
-        public Quaternion StartingRot;
-        [HideInInspector]
-        public Rigidbody Rb;
+        [HideInInspector] public Vector3 StartingPos;
+        [HideInInspector] public Quaternion StartingRot;
+        [HideInInspector] public Rigidbody Rb;
     }
 
     [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 25000;
+
     public GameObject ball;
-    [HideInInspector] public Rigidbody ballRb;
-    public static Vector3 ballPosition; // Store global ball position
-    Vector3 m_BallStartingPos;
+    private Rigidbody ballRb;
+    private Vector3 m_BallStartingPos;
 
     public List<PlayerInfo> AgentsList = new List<PlayerInfo>();
-    private SoccerSettings m_SoccerSettings;
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_PurpleAgentGroup;
-    private int m_ResetTimer;
-    private float blueScore = 0;
-    private float purpleScore = 0;
 
-    void Start()
+    private int m_ResetTimer;
+
+    private void Start()
     {
-        m_SoccerSettings = FindObjectOfType<SoccerSettings>();
         m_BlueAgentGroup = new SimpleMultiAgentGroup();
         m_PurpleAgentGroup = new SimpleMultiAgentGroup();
         ballRb = ball.GetComponent<Rigidbody>();
-        m_BallStartingPos = new Vector3(ball.transform.position.x, ball.transform.position.y, ball.transform.position.z);
-        foreach (var item in AgentsList)
+        m_BallStartingPos = ball.transform.position;
+
+        foreach (var player in AgentsList)
         {
-            item.StartingPos = item.Agent.transform.position;
-            item.StartingRot = item.Agent.transform.rotation;
-            item.Rb = item.Agent.GetComponent<Rigidbody>();
-            if (item.Agent.team == AgentSoccer.Team.Blue)  
+            player.StartingPos = player.Agent.transform.position;
+            player.StartingRot = player.Agent.transform.rotation;
+            player.Rb = player.Agent.GetComponent<Rigidbody>();
+
+            if (player.Agent.team == Team.Blue)
             {
-                m_BlueAgentGroup.RegisterAgent(item.Agent);
+                m_BlueAgentGroup.RegisterAgent(player.Agent);
             }
             else
             {
-                m_PurpleAgentGroup.RegisterAgent(item.Agent);
+                m_PurpleAgentGroup.RegisterAgent(player.Agent);
             }
         }
+
         ResetScene();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        ballPosition = ball.transform.position; // Update global ball position
-        m_ResetTimer += 1;
+        m_ResetTimer++;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
             m_BlueAgentGroup.GroupEpisodeInterrupted();
@@ -67,56 +63,44 @@ public class SoccerEnvController : MonoBehaviour
         }
     }
 
-    public void ResetBall()
+    private void ResetBall()
     {
-        var randomPosX = Random.Range(-2.5f, 2.5f);
-        var randomPosZ = Random.Range(-2.5f, 2.5f);
-        ball.transform.position = m_BallStartingPos + new Vector3(randomPosX, 0f, randomPosZ);
+        ball.transform.position = m_BallStartingPos + new Vector3(Random.Range(-2.5f, 2.5f), 0f, Random.Range(-2.5f, 2.5f));
         ballRb.velocity = Vector3.zero;
         ballRb.angularVelocity = Vector3.zero;
     }
 
-    public void GoalTouched(AgentSoccer.Team scoredTeam) 
+    public void GoalTouched(Team scoredTeam)
     {
-        if (scoredTeam == AgentSoccer.Team.Blue) 
+        if (scoredTeam == Team.Blue)
         {
-            blueScore++;
             m_BlueAgentGroup.AddGroupReward(1 - (float)m_ResetTimer / MaxEnvironmentSteps);
             m_PurpleAgentGroup.AddGroupReward(-1);
         }
         else
         {
-            purpleScore++;
             m_PurpleAgentGroup.AddGroupReward(1 - (float)m_ResetTimer / MaxEnvironmentSteps);
             m_BlueAgentGroup.AddGroupReward(-1);
         }
 
-        // Update all agents with the new score to adapt their strategy
-        foreach (var agent in AgentsList)
-        {
-            float scoreDiff = blueScore - purpleScore;
-            agent.Agent.UpdateGameScore(scoreDiff);
-        }
-
-        m_PurpleAgentGroup.EndGroupEpisode();
         m_BlueAgentGroup.EndGroupEpisode();
+        m_PurpleAgentGroup.EndGroupEpisode();
         ResetScene();
     }
 
-    public void ResetScene()
+    private void ResetScene()
     {
         m_ResetTimer = 0;
 
-        foreach (var item in AgentsList)
+        foreach (var player in AgentsList)
         {
-            var randomPosX = Random.Range(-5f, 5f);
-            var newStartPos = item.Agent.initialPos + new Vector3(randomPosX, 0f, 0f);
-            var rot = item.Agent.rotSign * Random.Range(80.0f, 100.0f);
-            var newRot = Quaternion.Euler(0, rot, 0);
-            item.Agent.transform.SetPositionAndRotation(newStartPos, newRot);
+            player.Agent.transform.SetPositionAndRotation(
+                player.StartingPos + new Vector3(Random.Range(-5f, 5f), 0f, 0f),
+                Quaternion.Euler(0f, player.Agent.rotSign * Random.Range(80f, 100f), 0f)
+            );
 
-            item.Rb.velocity = Vector3.zero;
-            item.Rb.angularVelocity = Vector3.zero;
+            player.Rb.velocity = Vector3.zero;
+            player.Rb.angularVelocity = Vector3.zero;
         }
 
         ResetBall();
