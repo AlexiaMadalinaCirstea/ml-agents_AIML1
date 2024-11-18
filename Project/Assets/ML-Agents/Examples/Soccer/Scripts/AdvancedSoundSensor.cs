@@ -66,12 +66,13 @@ public class AdvancedSoundSensor : MonoBehaviour, ISensor
             var latestSound = heardSounds[heardSounds.Count - 1];
             Vector3 directionToSound = (latestSound.position - transform.position).normalized;
 
-            writer.Add(directionToSound.x); 
-            writer.Add(directionToSound.y); 
-            writer.Add(directionToSound.z); 
-            writer.Add(latestSound.strength);
-            writer.Add(latestSound.position.x); 
-            writer.Add(latestSound.position.z);
+            writer.Add((float)directionToSound.x); 
+            writer.Add((float)directionToSound.y); 
+            writer.Add((float)directionToSound.z); 
+            writer.Add((float)latestSound.strength);
+            writer.Add((float)latestSound.position.x); 
+            writer.Add((float)latestSound.position.z);
+
         }
         else
         {
@@ -120,6 +121,22 @@ public class AdvancedSoundSensor : MonoBehaviour, ISensor
     {
         return CompressionSpec.Default();
     }
+
+     public bool GetHeardStatus(out Vector3 position)
+    {
+        position = Vector3.zero;
+
+        if (heardSounds.Count > 0)
+        {
+            var latestSound = heardSounds[heardSounds.Count - 1];
+            position = latestSound.position;
+            return true;
+        }
+
+        return false;
+    }
 }
+
+
 
 //think if you should add player footsteps to the sensor
