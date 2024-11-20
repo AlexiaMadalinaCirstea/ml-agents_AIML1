@@ -66,21 +66,19 @@ public class AdvancedSoundSensor : MonoBehaviour, ISensor
             var latestSound = heardSounds[heardSounds.Count - 1];
             Vector3 directionToSound = (latestSound.position - transform.position).normalized;
 
-            writer.Add((float)directionToSound.x); 
-            writer.Add((float)directionToSound.y); 
-            writer.Add((float)directionToSound.z); 
-            writer.Add((float)latestSound.strength);
-            writer.Add((float)latestSound.position.x); 
-            writer.Add((float)latestSound.position.z);
-
+            writer.Add(directionToSound);
+            writer.Add(new Vector3(latestSound.strength, 0f, 0f));
+            writer.Add(new Vector3(latestSound.position.x, 0f, latestSound.position.z));
         }
         else
         {
             //write zero if no sound was heard
-            writer.Add(0f); writer.Add(0f); writer.Add(0f); writer.Add(0f); writer.Add(0f); writer.Add(0f);
+            writer.Add(Vector3.zero);
+            writer.Add(Vector3.zero);
+            writer.Add(Vector3.zero);
         }
 
-        return 6;//this has to coincide with ObservationSpec.Vector(n) 
+        return 7;//this has to coincide with ObservationSpec.Vector(n) 
     }
 
     public byte[] GetCompressedObservation()
