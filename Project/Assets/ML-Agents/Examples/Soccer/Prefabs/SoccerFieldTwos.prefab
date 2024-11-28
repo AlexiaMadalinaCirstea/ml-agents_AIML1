@@ -2189,6 +2189,9 @@ GameObject:
   - component: {fileID: 9152743230243588598}
   - component: {fileID: 798330825103180240}
   - component: {fileID: 953642368502902968}
+  - component: {fileID: 3308713349418423899}
+  - component: {fileID: 2609904788078110708}
+  - component: {fileID: 3401565542771918319}
   m_Layer: 0
   m_Name: PurpleStriker
   m_TagString: purpleAgent
@@ -2312,6 +2315,8 @@ MonoBehaviour:
   agentRb: {fileID: 0}
   initialPos: {x: 0, y: 0, z: 0}
   rotSign: 0
+  strikerReactionThreshold: 15
+  goalieReactionThreshold: 10
 --- !u!114 &114320493772006642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,6 +2395,54 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+--- !u!114 &3308713349418423899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095606497496374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00a36da0a9424c4c86480896cc9e003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSoundStrength: 1
+--- !u!114 &2609904788078110708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095606497496374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a997104563b5e419a02e74a265b077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryDecayRate: 0.1
+  maxHearingDistance: 20
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &3401565542771918319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095606497496374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a48221574ce2194689e41fce2bcddfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensorName: AdvancedSoundSensor
+  maxHearingDistance: 20
+  memoryDecayRate: 0.1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1101518129530804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2543,9 @@ GameObject:
   - component: {fileID: 404683423509059512}
   - component: {fileID: 8557426429796011212}
   - component: {fileID: 3239498363823421602}
+  - component: {fileID: 5898202387943860462}
+  - component: {fileID: 7190611936239225496}
+  - component: {fileID: 5918774131867738583}
   m_Layer: 0
   m_Name: BlueStriker
   m_TagString: blueAgent
@@ -2613,6 +2669,8 @@ MonoBehaviour:
   agentRb: {fileID: 0}
   initialPos: {x: 0, y: 0, z: 0}
   rotSign: 0
+  strikerReactionThreshold: 15
+  goalieReactionThreshold: 10
 --- !u!114 &114516244030127556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2691,6 +2749,54 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+--- !u!114 &5898202387943860462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131626411948014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00a36da0a9424c4c86480896cc9e003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSoundStrength: 1
+--- !u!114 &7190611936239225496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131626411948014}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a997104563b5e419a02e74a265b077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryDecayRate: 0.1
+  maxHearingDistance: 20
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &5918774131867738583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131626411948014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a48221574ce2194689e41fce2bcddfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensorName: AdvancedSoundSensor
+  maxHearingDistance: 20
+  memoryDecayRate: 0.1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1141134673700168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,6 +4348,9 @@ GameObject:
   - component: {fileID: 8734522883866558980}
   - component: {fileID: 6283479335904612434}
   - component: {fileID: 1596784153339952993}
+  - component: {fileID: 554500725433975472}
+  - component: {fileID: 4693572542751328215}
+  - component: {fileID: 7213112364503170012}
   m_Layer: 0
   m_Name: PurpleStriker (1)
   m_TagString: purpleAgent
@@ -4365,6 +4474,8 @@ MonoBehaviour:
   agentRb: {fileID: 0}
   initialPos: {x: 0, y: 0, z: 0}
   rotSign: 0
+  strikerReactionThreshold: 15
+  goalieReactionThreshold: 10
 --- !u!114 &1023485123796557062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4443,6 +4554,54 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+--- !u!114 &554500725433975472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257467487437560250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00a36da0a9424c4c86480896cc9e003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSoundStrength: 1
+--- !u!114 &4693572542751328215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257467487437560250}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a997104563b5e419a02e74a265b077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryDecayRate: 0.1
+  maxHearingDistance: 20
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &7213112364503170012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257467487437560250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a48221574ce2194689e41fce2bcddfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensorName: AdvancedSoundSensor
+  maxHearingDistance: 20
+  memoryDecayRate: 0.1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6442519122303792292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,6 +4964,9 @@ GameObject:
   - component: {fileID: 1018414316889932458}
   - component: {fileID: 6939753220642424022}
   - component: {fileID: 8501643370968153297}
+  - component: {fileID: 5395621769992171849}
+  - component: {fileID: 1826045115681934137}
+  - component: {fileID: 3274422618579647232}
   m_Layer: 0
   m_Name: BlueStriker (1)
   m_TagString: blueAgent
@@ -4928,6 +5090,8 @@ MonoBehaviour:
   agentRb: {fileID: 0}
   initialPos: {x: 0, y: 0, z: 0}
   rotSign: 0
+  strikerReactionThreshold: 15
+  goalieReactionThreshold: 10
 --- !u!114 &2562571719799803906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5006,6 +5170,54 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+--- !u!114 &5395621769992171849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360301818957399454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00a36da0a9424c4c86480896cc9e003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSoundStrength: 1
+--- !u!114 &1826045115681934137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360301818957399454}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a997104563b5e419a02e74a265b077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryDecayRate: 0.1
+  maxHearingDistance: 20
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &3274422618579647232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360301818957399454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a48221574ce2194689e41fce2bcddfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensorName: AdvancedSoundSensor
+  maxHearingDistance: 20
+  memoryDecayRate: 0.1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8673569163220857793
 GameObject:
   m_ObjectHideFlags: 0

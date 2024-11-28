@@ -37,12 +37,13 @@ public class AgentSoccer : Agent
 
     private EnvironmentParameters m_ResetParams;
 
-    private AdvancedSoundSensor soundSensor;
+    private AdvancedSoundSensorComponent soundSensorComponent; // Reference to the sound sensor component
+    private AdvancedSoundSensor soundSensor; // Reference to the instantiated AdvancedSoundSensor
     private SoundEmitter soundEmitter;
 
-    //role-specific thresholds
-    public float strikerReactionThreshold = 15f; //striker reacts to sounds within 15 units
-    public float goalieReactionThreshold = 10f;  //goalie reacts to sounds within 10 units
+    // Role-specific thresholds
+    public float strikerReactionThreshold = 15f; // Striker reacts to sounds within 15 units
+    public float goalieReactionThreshold = 10f;  // Goalie reacts to sounds within 10 units
 
     public override void Initialize()
     {
@@ -51,7 +52,7 @@ public class AgentSoccer : Agent
             ? 1f / envController.MaxEnvironmentSteps
             : 1f / MaxStep;
 
-        m_BehaviorParameters = gameObject.GetComponent<BehaviorParameters>();
+        m_BehaviorParameters = GetComponent<BehaviorParameters>();
         if (m_BehaviorParameters.TeamId == (int)Team.Blue)
         {
             team = Team.Blue;
@@ -65,6 +66,7 @@ public class AgentSoccer : Agent
             rotSign = -1f;
         }
 
+        // Set position-specific movement speeds
         switch (position)
         {
             case Position.Goalie:
@@ -87,12 +89,28 @@ public class AgentSoccer : Agent
 
         m_ResetParams = Academy.Instance.EnvironmentParameters;
 
-        soundSensor = GetComponent<AdvancedSoundSensor>();
+        // Initialize sound sensor and emitter
+        soundSensorComponent = GetComponent<AdvancedSoundSensorComponent>();
         soundEmitter = GetComponent<SoundEmitter>();
+
+        if (soundSensorComponent != null)
+        {
+            var sensors = soundSensorComponent.CreateSensors();
+            foreach (var sensor in sensors)
+            {
+                if (sensor is AdvancedSoundSensor)
+                {
+                    soundSensor = (AdvancedSoundSensor)sensor;
+                    break;
+                }
+            }
+        }
+
         if (soundSensor == null)
         {
-            Debug.LogWarning($"{gameObject.name}: AdvancedSoundSensor is not attached. Observations may be incomplete.");
+            Debug.LogWarning($"{gameObject.name}: AdvancedSoundSensor is not properly initialized. Observations may be incomplete.");
         }
+
         if (soundEmitter == null)
         {
             Debug.LogWarning($"{gameObject.name}: SoundEmitter is not attached. No sound events will be emitted.");
@@ -125,14 +143,14 @@ public class AgentSoccer : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        //rewards/penalties based on role
+        // Rewards/penalties based on role
         if (position == Position.Goalie) AddReward(m_Existential);
         else if (position == Position.Striker) AddReward(-m_Existential);
 
-        //process agent movement actions
+        // Process agent movement actions
         MoveAgent(actionBuffers.DiscreteActions);
 
-        //role-specific reactions to sounds
+        // Role-specific reactions to sounds
         if (soundSensor != null)
         {
             Vector3 heardPosition;
@@ -141,22 +159,22 @@ public class AgentSoccer : Agent
                 float distanceToSound = Vector3.Distance(transform.position, heardPosition);
                 Debug.Log($"{gameObject.name} heard sound at {heardPosition} (distance: {distanceToSound})");
 
-                //calculate the direction to the sound
+                // Calculate the direction to the sound
                 Vector3 directionToSound = (heardPosition - transform.position).normalized;
 
-                //react based on role and threshold
+                // React based on role and threshold
                 if (position == Position.Striker && distanceToSound <= strikerReactionThreshold)
                 {
-                    //striker moves toward the sound if within threshold
+                    // Striker moves toward the sound if within threshold
                     agentRb.AddForce(directionToSound * m_SoccerSettings.agentRunSpeed, ForceMode.VelocityChange);
-                    AddReward(0.01f); 
+                    AddReward(0.01f);
                 }
                 else if (position == Position.Goalie && distanceToSound <= goalieReactionThreshold)
                 {
-                    //goalie moves away from the sound if within threshold
+                    // Goalie moves away from the sound if within threshold
                     Vector3 directionAwayFromSound = -directionToSound;
                     agentRb.AddForce(directionAwayFromSound * m_SoccerSettings.agentRunSpeed, ForceMode.VelocityChange);
-                    AddReward(0.01f); 
+                    AddReward(0.01f);
                 }
             }
         }
@@ -175,7 +193,7 @@ public class AgentSoccer : Agent
             var dir = (c.contacts[0].point - transform.position).normalized;
             c.gameObject.GetComponent<Rigidbody>().AddForce(dir * k_Power * m_KickPower);
 
-            //emit sound on collision
+            // Emit sound on collision
             if (soundEmitter != null)
             {
                 soundEmitter.EmitSound();

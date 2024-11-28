@@ -3,16 +3,24 @@ using UnityEngine;
 public class SoundEmitter : MonoBehaviour
 {
     public float baseSoundStrength = 1f;
+    public float soundRange = 20f;
 
     public void EmitSound()
     {
-        Collider[] nearbyAgents = Physics.OverlapSphere(transform.position, 20f);
+        Collider[] nearbyAgents = Physics.OverlapSphere(transform.position, soundRange);
         foreach (var collider in nearbyAgents)
         {
-            var soundSensor = collider.GetComponent<AdvancedSoundSensor>();
-            if (soundSensor != null)
+            var sensorComponent = collider.GetComponent<AdvancedSoundSensorComponent>();
+            if (sensorComponent != null)
             {
-                soundSensor.ReceiveSound(transform.position, baseSoundStrength);
+                var sensors = sensorComponent.CreateSensors();
+                foreach (var sensor in sensors)
+                {
+                    if (sensor is AdvancedSoundSensor soundSensor)
+                    {
+                        soundSensor.ReceiveSound(transform.position, baseSoundStrength);
+                    }
+                }
             }
         }
 
