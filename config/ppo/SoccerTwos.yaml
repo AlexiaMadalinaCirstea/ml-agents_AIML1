@@ -1,0 +1,31 @@
+behaviors:
+  SoccerTwos:
+    trainer_type: ppo
+
+    hyperparameters:
+      batch_size: 2048
+      buffer_size: 20480
+      learning_rate: 5.0e-4
+      learning_rate_schedule: linear
+      beta: 1.0e-3
+      epsilon: 0.2
+      lambd: 0.9
+      num_epoch: 5
+
+    network_settings:
+      vis_encode_type: simple
+      hidden_units: 256
+      num_layers: 3
+      memory:
+        sequence_length: 64
+        memory_size: 512
+
+    max_steps: 1000000
+    time_horizon: 128
+    summary_freq: 5000
+
+    self_play:
+      save_steps: 50000
+      swap_steps: 5000
+      play_against_latest_model_ratio: 0.7
+      team_change: 200000
