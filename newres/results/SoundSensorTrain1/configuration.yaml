@@ -71,11 +71,11 @@ checkpoint_settings:
   run_id: SoundSensorTrain1
   initialize_from: null
   load_model: false
-  resume: false
+  resume: true
   force: false
   train_model: false
   inference: false
-  results_dir: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\results
+  results_dir: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\newres\results
 torch_settings:
   device: null
 debug: false
