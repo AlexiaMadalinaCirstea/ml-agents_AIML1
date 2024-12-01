@@ -98,10 +98,23 @@ public class AgentSoccer : Agent
         m_ResetParams = Academy.Instance.EnvironmentParameters;
 
         // Initialize VisionMemory
-        visionMemory = GetComponent<VisionMemory>();
-        if (visionMemory == null)
+        VisionMemorySensorComponent visionMemorySensorComponent = GetComponent<VisionMemorySensorComponent>();
+        if (visionMemorySensorComponent != null)
         {
-            Debug.LogWarning($"{gameObject.name}: VisionMemory is not attached.");
+            var sensors = visionMemorySensorComponent.CreateSensors();
+            foreach (var sensor in sensors)
+            {
+                if (sensor is VisionMemory)
+                {
+                    visionMemory = (VisionMemory)sensor;
+                    Debug.Log($"{gameObject.name}: VisionMemory successfully initialized.");
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError($"{gameObject.name}: VisionMemorySensorComponent not found! Attach it to the GameObject.");
         }
 
         // Initialize AdvancedSoundSensor
@@ -116,6 +129,7 @@ public class AgentSoccer : Agent
                 if (sensor is AdvancedSoundSensor)
                 {
                     soundSensor = (AdvancedSoundSensor)sensor;
+                    Debug.Log($"{gameObject.name}: AdvancedSoundSensor successfully initialized.");
                     break;
                 }
             }
