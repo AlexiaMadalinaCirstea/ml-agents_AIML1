@@ -21,23 +21,34 @@ public class AdvancedSoundSensorComponent : SensorComponent
 
     private AdvancedSoundSensor sensor;
 
+    private void Awake()
+    {
+        sensor = GetComponent<AdvancedSoundSensor>();
+        if (sensor == null)
+        {
+            Debug.LogError($"{gameObject.name}: AdvancedSoundSensor is missing in Awake!");
+        }
+        else
+        {
+            Debug.Log($"{gameObject.name}: AdvancedSoundSensor initialized in Awake.");
+        }
+    }
+
     public override ISensor[] CreateSensors()
     {
-        // Get the attached AdvancedSoundSensor component
         sensor = GetComponent<AdvancedSoundSensor>();
 
         if (sensor == null)
         {
-            Debug.LogError("AdvancedSoundSensor is missing! Ensure it is attached to the GameObject.");
-            return null;
+            Debug.LogError($"{gameObject.name}: AdvancedSoundSensor is missing or not initialized!");
+            return new ISensor[0];
         }
 
-        // Configure the sensor with current settings
-        sensor.maxHearingDistance = Mathf.Max(maxHearingDistance, 0.1f); // Ensure positive distance
-        sensor.memoryDecayRate = Mathf.Max(memoryDecayRate, 0f); // Prevent negative decay rate
+        Debug.Log($"{gameObject.name}: AdvancedSoundSensor found and initialized successfully.");
+        sensor.maxHearingDistance = Mathf.Max(maxHearingDistance, 0.1f);
+        sensor.memoryDecayRate = Mathf.Max(memoryDecayRate, 0f);
         sensor.obstacleMask = obstacleMask;
 
-        // Return the sensor as an ISensor array
         return new ISensor[] { sensor };
     }
 

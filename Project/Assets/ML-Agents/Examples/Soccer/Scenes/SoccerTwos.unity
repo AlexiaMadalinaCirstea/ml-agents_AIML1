@@ -614,7 +614,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1131626411948014, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2132931099}
+      addedObject: {fileID: 2132931097}
     - targetCorrespondingSourceObject: {fileID: 1131626411948014, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
@@ -622,23 +622,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1131626411948014, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2132931097}
-    - targetCorrespondingSourceObject: {fileID: 1131626411948014, guid: 54f3340298537426e96a6cc530e2d5d8,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2132931096}
     - targetCorrespondingSourceObject: {fileID: 1095606497496374, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 774084585}
+      addedObject: {fileID: 774084583}
     - targetCorrespondingSourceObject: {fileID: 1095606497496374, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 774084584}
-    - targetCorrespondingSourceObject: {fileID: 1095606497496374, guid: 54f3340298537426e96a6cc530e2d5d8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 774084583}
     - targetCorrespondingSourceObject: {fileID: 1095606497496374, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
@@ -650,11 +642,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8360301818957399454, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1122693706}
+      addedObject: {fileID: 1122693705}
     - targetCorrespondingSourceObject: {fileID: 8360301818957399454, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1122693705}
+      addedObject: {fileID: 1122693706}
     - targetCorrespondingSourceObject: {fileID: 6257467487437560250, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
@@ -662,11 +654,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6257467487437560250, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 774084580}
+      addedObject: {fileID: 774084579}
     - targetCorrespondingSourceObject: {fileID: 6257467487437560250, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 774084579}
+      addedObject: {fileID: 774084580}
   m_SourcePrefab: {fileID: 100100000, guid: 54f3340298537426e96a6cc530e2d5d8, type: 3}
 --- !u!1 &774084575 stripped
 GameObject:
@@ -787,23 +779,6 @@ MonoBehaviour:
   sensorName: AdvancedSoundSensor
   maxHearingDistance: 20
   memoryDecayRate: 0.1
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &774084585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774084577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a997104563b5e419a02e74a265b077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  memoryDecayRate: 0.1
-  maxHearingDistance: 20
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1905,23 +1880,6 @@ MonoBehaviour:
   sensorName: AdvancedSoundSensor
   maxHearingDistance: 20
   memoryDecayRate: 0.1
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &2132931099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774084578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a997104563b5e419a02e74a265b077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  memoryDecayRate: 0.1
-  maxHearingDistance: 20
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
