@@ -1,0 +1,48 @@
+{
+    "SoccerTwos": {
+        "checkpoints": [
+            {
+                "steps": 499620,
+                "file_path": "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-499620.onnx",
+                "reward": 0.0,
+                "creation_time": 1732995523.4433029,
+                "auxillary_file_paths": [
+                    "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-499620.pt"
+                ]
+            },
+            {
+                "steps": 999250,
+                "file_path": "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-999250.onnx",
+                "reward": 0.0,
+                "creation_time": 1733004139.3584864,
+                "auxillary_file_paths": [
+                    "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-999250.pt"
+                ]
+            },
+            {
+                "steps": 1174036,
+                "file_path": "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-1174036.onnx",
+                "reward": null,
+                "creation_time": 1733007358.6025684,
+                "auxillary_file_paths": [
+                    "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-1174036.pt"
+                ]
+            }
+        ],
+        "elo": 1216.0415737483634,
+        "final_checkpoint": {
+            "steps": 1174036,
+            "file_path": "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos.onnx",
+            "reward": null,
+            "creation_time": 1733007358.6025684,
+            "auxillary_file_paths": [
+                "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-1174036.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.8.1+cpu"
+    }
+}
