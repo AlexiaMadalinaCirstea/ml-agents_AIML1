@@ -148,13 +148,30 @@ public class AgentSoccer : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Collect VisionMemory observations
-        if (visionMemory != null)
+        if (sensor == null)
         {
-            visionMemory.UpdateMemoryFromRaySensor();
-            var visionObservations = visionMemory.GetObservations();
-            sensor.AddObservation(visionObservations);
+            Debug.LogError($"{gameObject.name}: VectorSensor is null in CollectObservations.");
+            return;
         }
+
+        // Collect VisionMemory observations
+        visionMemory.UpdateMemoryFromRaySensor();
+        var visionObservations = visionMemory.GetObservations();
+
+        if (visionObservations == null)
+        {
+            Debug.LogError($"{gameObject.name}: VisionMemory.GetObservations() returned null.");
+            sensor.AddObservation(new float[0]); // Add a fallback empty observation
+            return;
+        }
+
+        if (visionObservations.Length == 0)
+        {
+            Debug.LogWarning($"{gameObject.name}: VisionObservations is empty.");
+        }
+
+        Debug.Log($"{gameObject.name}: VisionObservations: {string.Join(",", visionObservations)}");
+        sensor.AddObservation(visionObservations);
 
         // Collect AdvancedSoundSensor observations
         if (soundSensor != null)
@@ -241,7 +258,12 @@ public class AgentSoccer : Agent
 
             if (soundEmitter != null)
             {
+                Debug.Log($"{gameObject.name}: SoundEmitter is emitting sound.");
                 soundEmitter.EmitSound();
+            }
+            else
+            {
+                Debug.LogError($"{gameObject.name}: SoundEmitter is null during OnCollisionEnter.");
             }
         }
     }
