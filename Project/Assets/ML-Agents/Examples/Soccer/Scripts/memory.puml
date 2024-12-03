@@ -1,0 +1,43 @@
+@startuml MemorySensor
+' Define classes
+class VisionMemory {
+    - string sensorName
+    - int observationSize
+    - int memoryCapacity
+    - RayPerceptionSensorComponent3D raySensor
+    - Queue<float[]> memoryBuffer
+    - List<float[]> memoryBufferDebug
+
+    + VisionMemory(string name, int obsSize, int memoryCap, RayPerceptionSensorComponent3D raySensorComponent)
+    - void UpdateDebugMemoryBuffer()
+    + void AddObservation(float[] observation)
+    + void UpdateMemoryFromRaySensor()
+    + float[] GetObservations()
+    + ObservationSpec GetObservationSpec()
+    + int Write(ObservationWriter writer)
+    + byte[] GetCompressedObservation()
+    + void Update()
+    + void Reset()
+    + string GetName()
+    + CompressionSpec GetCompressionSpec()
+}
+
+class VisionMemorySensorComponent {
+    - string sensorName
+    - int observationSize
+    - int memoryCapacity
+    - RayPerceptionSensorComponent3D raySensor
+
+    + ISensor[] CreateSensors()
+    + void OnEnable()
+    + string SensorName { get; set; }
+    + int ObservationSize { get; set; }
+    + int MemoryCapacity { get; set; }
+    + RayPerceptionSensorComponent3D RaySensor { get; set; }
+}
+
+' Relationships
+VisionMemorySensorComponent --> VisionMemory : uses
+VisionMemory --> RayPerceptionSensorComponent3D : depends on
+
+@enduml

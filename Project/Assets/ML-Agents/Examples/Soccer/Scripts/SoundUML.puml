@@ -1,0 +1,31 @@
+@startuml SoundPUML
+class AdvancedSoundSensor {
+    + float memoryDecayRate
+    + float maxHearingDistance
+    + LayerMask obstacleMask
+
+    - List<SoundEvent> heardSounds
+    - string sensorName
+    - ObservationSpec observationSpec
+
+    + void ReceiveSound(Vector3 soundPosition, float baseStrength)
+    + string GetName()
+    + int Write(ObservationWriter writer)
+    + bool GetHeardStatus(out Vector3 position)
+    + void Update()
+    + void Reset()
+    + ObservationSpec GetObservationSpec()
+}
+
+class SoundEvent {
+    + Vector3 position
+    + float strength
+    + float timeHeard
+}
+
+AdvancedSoundSensor "1" *-- "1..*" SoundEvent : logs
+AdvancedSoundSensor ..> ObservationWriter : uses
+AdvancedSoundSensor ..> ObservationSpec : returns
+AdvancedSoundSensor <|-- ISensor : implements
+
+@enduml
