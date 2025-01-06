@@ -45,8 +45,19 @@ public class AgentSoccer : Agent
     public float strikerReactionThreshold = 15f; // Striker reacts to sounds within 15 units
     public float goalieReactionThreshold = 10f;  // Goalie reacts to sounds within 10 units
 
+    //database
+    private DatabaseLogger dbLogger;
+
     public override void Initialize()
     {
+
+        //database
+
+        dbLogger = new DatabaseLogger();
+        dbLogger.ConnectToDatabase("localhost", "MLpostgres", "postgres", "postgres");
+
+        base.Initialize();
+
         SoccerEnvController envController = GetComponentInParent<SoccerEnvController>();
         m_Existential = envController != null
             ? 1f / envController.MaxEnvironmentSteps
@@ -119,6 +130,8 @@ public class AgentSoccer : Agent
 
     public void MoveAgent(ActionSegment<int> act)
     {
+        base.MoveAgent(act);
+
         var dirToGo = Vector3.zero;
         var rotateDir = Vector3.zero;
 
@@ -139,10 +152,18 @@ public class AgentSoccer : Agent
 
         transform.Rotate(rotateDir, Time.deltaTime * 100f);
         agentRb.AddForce(dirToGo * m_SoccerSettings.agentRunSpeed, ForceMode.VelocityChange);
+
+        string actionDetails = $"Forward: {act[0]}, Right: {act[1]}, Rotate: {act[2]}";
+        dbLogger.InsertAction((int)team, "MoveAgent", actionDetails);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
+
+        //database
+        base.OnActionReceived(actionBuffers);
+
+
         // Rewards/penalties based on role
         if (position == Position.Goalie) AddReward(m_Existential);
         else if (position == Position.Striker) AddReward(-m_Existential);
@@ -158,6 +179,7 @@ public class AgentSoccer : Agent
             {
                 float distanceToSound = Vector3.Distance(transform.position, heardPosition);
                 Debug.Log($"{gameObject.name} heard sound at {heardPosition} (distance: {distanceToSound})");
+                dbLogger.InsertObservation((int)team, heardPosition, soundStrength);
 
                 // Calculate the direction to the sound
                 Vector3 directionToSound = (heardPosition - transform.position).normalized;
@@ -208,4 +230,12 @@ public class AgentSoccer : Agent
         discreteActionsOut[2] = Input.GetKey(KeyCode.A) ? 1 : Input.GetKey(KeyCode.D) ? 2 : 0;
         discreteActionsOut[1] = Input.GetKey(KeyCode.E) ? 1 : Input.GetKey(KeyCode.Q) ? 2 : 0;
     }
+
+    private void LogReward(float reward)
+    {
+        // Log reward data dynamically
+        dbLogger.InsertReward((int)team, reward);
+    }
+
+
 }

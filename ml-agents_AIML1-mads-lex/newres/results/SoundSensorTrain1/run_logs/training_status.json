@@ -2,15 +2,6 @@
     "SoccerTwos": {
         "checkpoints": [
             {
-                "steps": 13499982,
-                "file_path": "C:\\Users\\Ellie\\Downloads\\ml-agents_AIML1-mads-lex\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-13499982.onnx",
-                "reward": 0.0,
-                "creation_time": 1733261297.2052681,
-                "auxillary_file_paths": [
-                    "C:\\Users\\Ellie\\Downloads\\ml-agents_AIML1-mads-lex\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-13499982.pt"
-                ]
-            },
-            {
                 "steps": 13999951,
                 "file_path": "C:\\Users\\Ellie\\Downloads\\ml-agents_AIML1-mads-lex\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-13999951.onnx",
                 "reward": -0.04103448340433768,
@@ -45,22 +36,31 @@
                 "auxillary_file_paths": [
                     "C:\\Users\\Ellie\\Downloads\\ml-agents_AIML1-mads-lex\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-15335274.pt"
                 ]
+            },
+            {
+                "steps": 15417544,
+                "file_path": "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-15417544.onnx",
+                "reward": null,
+                "creation_time": 1733303921.368047,
+                "auxillary_file_paths": [
+                    "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-15417544.pt"
+                ]
             }
         ],
-        "elo": 1559.0062985109676,
+        "elo": 1565.0815620271956,
         "final_checkpoint": {
-            "steps": 15335274,
-            "file_path": "C:\\Users\\Ellie\\Downloads\\ml-agents_AIML1-mads-lex\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos.onnx",
-            "reward": -0.03619166715846708,
-            "creation_time": 1733267387.0765343,
+            "steps": 15417544,
+            "file_path": "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos.onnx",
+            "reward": null,
+            "creation_time": 1733303921.368047,
             "auxillary_file_paths": [
-                "C:\\Users\\Ellie\\Downloads\\ml-agents_AIML1-mads-lex\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-15335274.pt"
+                "C:\\Users\\User\\Desktop\\Project 2-1\\ml-agents_AIML1\\ml-agents_AIML1-mads-lex\\newres\\results\\SoundSensorTrain1\\SoccerTwos\\SoccerTwos-15417544.pt"
             ]
         }
     },
     "metadata": {
         "stats_format_version": "0.3.0",
-        "mlagents_version": "1.1.0",
-        "torch_version": "2.5.1+cpu"
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.8.1+cpu"
     }
 }
