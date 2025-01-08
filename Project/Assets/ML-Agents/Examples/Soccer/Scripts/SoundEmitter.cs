@@ -5,33 +5,25 @@ public class SoundEmitter : MonoBehaviour
     public float baseSoundStrength = 1f;
     public float soundRange = 20f;
 
-   public void EmitSound()
-{
-    Collider[] nearbyAgents = Physics.OverlapSphere(transform.position, soundRange);
-    foreach (var collider in nearbyAgents)
+    public void EmitSound()
     {
-        var sensorComponent = collider.GetComponent<AdvancedSoundSensorComponent>();
-        if (sensorComponent != null)
+        Collider[] nearbyAgents = Physics.OverlapSphere(transform.position, soundRange);
+        foreach (var collider in nearbyAgents)
         {
-            var sensors = sensorComponent.CreateSensors();
-            foreach (var sensor in sensors)
+            var sensorComponent = collider.GetComponent<AdvancedSoundSensorComponent>();
+            if (sensorComponent != null)
             {
-                if (sensor is AdvancedSoundSensor soundSensor)
+                var sensors = sensorComponent.CreateSensors();
+                foreach (var sensor in sensors)
                 {
-                    soundSensor.ReceiveSound(transform.position, baseSoundStrength);
-
-                    // Log the emitted sound event to the database
-                    var logger = collider.GetComponent<AgentSoccer>()?.dbLogger;
-                    if (logger != null)
+                    if (sensor is AdvancedSoundSensor soundSensor)
                     {
-                        logger.InsertObservation(collider.GetInstanceID(), transform.position, baseSoundStrength);
+                        soundSensor.ReceiveSound(transform.position, baseSoundStrength);
                     }
                 }
             }
         }
+
+        Debug.Log($"Sound emitted from {gameObject.name} at {transform.position}");
     }
-
-    Debug.Log($"Sound emitted from {gameObject.name} at {transform.position}");
-}
-
 }
