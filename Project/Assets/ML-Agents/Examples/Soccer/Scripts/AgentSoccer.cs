@@ -2,6 +2,9 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
+using Unity.MLAgents.Sensors;
+using System.Collections.Generic;  // For using List<T>
+
 
 public enum Team
 {
@@ -45,6 +48,8 @@ public class AgentSoccer : Agent
     BehaviorParameters m_BehaviorParameters;
     public Vector3 initialPos;
     public float rotSign;
+
+    public VisionMemory visionMemory; 
 
     EnvironmentParameters m_ResetParams;
 
@@ -93,7 +98,52 @@ public class AgentSoccer : Agent
         agentRb.maxAngularVelocity = 500;
 
         m_ResetParams = Academy.Instance.EnvironmentParameters;
+
+        // visionMemory = GetComponent<VisionMemory>();
+        //if (visionMemory == null)
+        //{
+          //  visionMemory = gameObject.AddComponent<VisionMemory>();
+          //  Debug.Log($"VisionMemory dynamically added to {gameObject.name}");
+        //}
+
+       // Debug the sensors attached to this agent
+        var sensors = GetComponents<ISensor>();
+        int totalObservationSize = 0;
+
+        Debug.Log($"Agent {gameObject.name} Sensors:");
+        foreach (var   sensor in sensors)
+        {
+            Debug.Log($"{sensor.GetName()} - Observation Size: {sensor.ObservationSize()}");
+            totalObservationSize += sensor.ObservationSize();
+        }
+        Debug.Log($"Total Observation Size for {gameObject.name}: {totalObservationSize}");
+       
     }
+
+    /*public override void CollectObservations(VectorSensor sensor)
+    {
+
+        VisionMemory visionMemory = GetComponent<VisionMemory>(); 
+
+        if (visionMemory == null)
+        {
+            Debug.LogError($"VisionMemory is null on {gameObject.name}. Check if the component is added.");
+            return;
+        }
+        Debug.Log("Updating memory from ray sensor.");
+        visionMemory.UpdateMemoryFromRaySensor();
+        
+        var observations = visionMemory.GetObservations();
+        if (observations == null)
+        {
+            Debug.LogError($"VisionMemory.GetObservations() returned null for {gameObject.name}.");
+            return;
+        }
+        
+        sensor.AddObservation(observations);
+    }*/
+
+
 
     public void MoveAgent(ActionSegment<int> act)
     {
@@ -161,6 +211,7 @@ public class AgentSoccer : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
+        Debug.Log("Using heuristic"); 
         var discreteActionsOut = actionsOut.DiscreteActions;
         //forward
         if (Input.GetKey(KeyCode.W))
