@@ -1,4 +1,4 @@
-Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+Library: J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --platform=Windows
 --backend=burst-llvm-16
 --target=X64_SSE2
@@ -58,10 +58,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Sentis.Compiler.Passes.Optimization.RoundDenormalWeightsPass+RoundDenormalJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.Compiler.Passes.Optimization.RoundDenormalWeightsPass+RoundDenormalJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--67971f3ba13d970f39d08fb0d03b400f
@@ -144,10 +144,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Sentis.Compiler.Passes.Optimization.RoundDenormalWeightsPass+RoundDenormalJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.Compiler.Passes.Optimization.RoundDenormalWeightsPass+RoundDenormalJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--67971f3ba13d970f39d08fb0d03b400f
@@ -230,10 +230,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Sentis.IParallelForBatchExtensions+ParallelForBatchJobStruct`1[[Unity.Sentis.CPUBackend+PowFloatJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.CPUBackend+PowFloatJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--3432584cfedee500fe7e0f0bca5484b6
@@ -395,10 +395,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Sentis.IParallelForBatchExtensions+ParallelForBatchJobStruct`1[[Unity.Sentis.CPUBackend+PowFloatJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.CPUBackend+PowFloatJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--3432584cfedee500fe7e0f0bca5484b6
@@ -561,10 +561,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Sentis.IParallelForBatchExtensions+ParallelForBatchJobStruct`1[[Unity.Sentis.CPUBackend+ReduceProdFloatJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.CPUBackend+ReduceProdFloatJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--4384ce14898add006f2e112e2000ae17
@@ -675,10 +675,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Sentis.IParallelForBatchExtensions+ParallelForBatchJobStruct`1[[Unity.Sentis.CPUBackend+ReduceProdFloatJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.CPUBackend+ReduceProdFloatJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--4384ce14898add006f2e112e2000ae17
@@ -788,10 +788,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Sentis.CPUBackend+ConvJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null::CanUseDepthwiseConvKernel(Unity.Sentis.CPUBackend+ConvJob*, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null)--749c8663ad9ca6b2a08470eb20d7fe3c
@@ -854,10 +854,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Sentis.CPUBackend+ConvJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null::CanUseDepthwiseConvKernel(Unity.Sentis.CPUBackend+ConvJob*, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null)--749c8663ad9ca6b2a08470eb20d7fe3c
@@ -921,10 +921,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Sentis.CPUBackend+GlobalAverageVariancePoolJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.CPUBackend+GlobalAverageVariancePoolJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--206af1cda3f63bc0adddbb3dd4f00913
@@ -988,10 +988,10 @@ Library: C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOut
 --assembly-defines=UnityEngine;
 --linker-options=PdbAltPath="UnityEnvironment_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\Burst
---key-folder=D:/UnityEditor/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Library\Burst
---output=C:\Users\User\Desktop\Project 2-1\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=J:\unity\ml-agents_AIML1\Project\Temp\Burst
+--key-folder=J:/unity/2023.2.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=J:\unity\ml-agents_AIML1\Project\Library\Burst
+--output=J:\unity\ml-agents_AIML1\Project\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Sentis.CPUBackend+GlobalAverageVariancePoolJob, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Sentis.CPUBackend+GlobalAverageVariancePoolJob&, Unity.Sentis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--206af1cda3f63bc0adddbb3dd4f00913
