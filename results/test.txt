@@ -1,0 +1,1 @@
+this is a folder made to upload the onnx files - memory sensor run diego configurations (inside terminal) : soccerMEMORYsensor1/2/3 
